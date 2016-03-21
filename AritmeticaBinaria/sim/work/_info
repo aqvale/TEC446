@@ -1,0 +1,114 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/ProjetosModelSim/problema2/sim
+vBanco_Registro
+!s110 1458512000
+!i10b 1
+!s100 5LX3Y_QD3Zj`Q@Q>z2:HS3
+I;i5JiLiIk>l9YcakZ??=T3
+Z0 V`JN@9S9cnhjKRR_L]QIcM3
+Z1 dC:/ProjetosModelSim/AritmeticaBinaria/sim
+w1458511989
+8C:\ProjetosModelSim\AritmeticaBinaria\sim\Banco_Registo.v
+FC:\ProjetosModelSim\AritmeticaBinaria\sim\Banco_Registo.v
+L0 2
+Z2 OV;L;10.3d;59
+r1
+!s85 0
+31
+!s108 1458512000.533000
+!s107 C:\ProjetosModelSim\AritmeticaBinaria\sim\Banco_Registo.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:\ProjetosModelSim\AritmeticaBinaria\sim\Banco_Registo.v|
+!i113 1
+Z3 o-work work
+n@banco_@registro
+vComplemento_A2
+!s110 1458513204
+!i10b 1
+!s100 6h83C?d5<1<gI^SS>7ZDH2
+I^iJ]Y?HJeN^10e]oFfRR`0
+R0
+R1
+w1458513196
+8C:\ProjetosModelSim\AritmeticaBinaria\sim\Complemento_A2.v
+FC:\ProjetosModelSim\AritmeticaBinaria\sim\Complemento_A2.v
+L0 1
+R2
+r1
+!s85 0
+31
+!s108 1458513204.563000
+!s107 C:\ProjetosModelSim\AritmeticaBinaria\sim\Complemento_A2.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:\ProjetosModelSim\AritmeticaBinaria\sim\Complemento_A2.v|
+!i113 1
+R3
+n@complemento_@a2
+vMemoria
+!s110 1458513275
+!i10b 1
+!s100 ZU0TK7eFlS;TVE_h[NDg?0
+Ii1A<L1AaBAR3k:QOT:3V21
+R0
+R1
+w1458513266
+Z4 8C:\ProjetosModelSim\AritmeticaBinaria\sim\Memoria.v
+Z5 FC:\ProjetosModelSim\AritmeticaBinaria\sim\Memoria.v
+Z6 L0 30
+R2
+r1
+!s85 0
+31
+!s108 1458513275.436000
+!s107 C:\ProjetosModelSim\AritmeticaBinaria\sim\Memoria.v|
+Z7 !s90 -reportprogress|300|-work|work|-stats=none|C:\ProjetosModelSim\AritmeticaBinaria\sim\Memoria.v|
+!i113 1
+R3
+n@memoria
+vsp_rom
+!s110 1458489432
+!i10b 1
+!s100 GABMBLFMlN@zXkXF@kb4a2
+IPm168[bMFI5ac@M0jk1^43
+R0
+R1
+w1458489428
+R4
+R5
+R6
+R2
+r1
+!s85 0
+31
+!s108 1458489432.222000
+!s107 C:\ProjetosModelSim\AritmeticaBinaria\sim\Memoria.v|
+R7
+!i113 1
+R3
+vTeste
+!s110 1458490544
+!i10b 1
+!s100 `MbTb=6HRn7RmnlVQ[>Hd3
+IC@4k5e066TiiAHdXU]ef02
+R0
+R1
+w1458490537
+8C:/ProjetosModelSim/AritmeticaBinaria/sim/Teste.v
+FC:/ProjetosModelSim/AritmeticaBinaria/sim/Teste.v
+L0 3
+R2
+r1
+!s85 0
+31
+!s108 1458490544.214000
+!s107 Memoria.v|C:/ProjetosModelSim/AritmeticaBinaria/sim/Teste.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/ProjetosModelSim/AritmeticaBinaria/sim/Teste.v|
+!i113 1
+R3
+n@teste

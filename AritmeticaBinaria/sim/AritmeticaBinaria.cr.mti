@@ -1,0 +1,30 @@
+C:/ProjetosModelSim/AritmeticaBinaria/sim/Complemento_A2.v {1 {vlog -work work -stats=none {C:\ProjetosModelSim\AritmeticaBinaria\sim\Complemento_A2.v}
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module Complemento_A2
+
+Top level modules:
+	Complemento_A2
+
+} {} {}} C:/ProjetosModelSim/AritmeticaBinaria/sim/Teste.v {1 {vlog -work work -stats=none C:/ProjetosModelSim/AritmeticaBinaria/sim/Teste.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module Memoria
+-- Compiling module Teste
+
+Top level modules:
+	Teste
+
+} {} {}} C:/ProjetosModelSim/AritmeticaBinaria/sim/Memoria.v {1 {vlog -work work -stats=none {C:\ProjetosModelSim\AritmeticaBinaria\sim\Memoria.v}
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module Memoria
+
+Top level modules:
+	Memoria
+
+} {} {}} C:/ProjetosModelSim/AritmeticaBinaria/sim/Banco_Registo.v {1 {vlog -work work -stats=none {C:\ProjetosModelSim\AritmeticaBinaria\sim\Banco_Registo.v}
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module Banco_Registro
+
+Top level modules:
+	Banco_Registro
+
+} {} {}}
