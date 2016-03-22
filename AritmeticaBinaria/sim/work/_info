@@ -9,106 +9,107 @@ z2
 cModel Technology
 dC:/ProjetosModelSim/problema2/sim
 vBanco_Registro
-!s110 1458512000
+Z0 !s110 1458671104
 !i10b 1
 !s100 5LX3Y_QD3Zj`Q@Q>z2:HS3
-I;i5JiLiIk>l9YcakZ??=T3
-Z0 V`JN@9S9cnhjKRR_L]QIcM3
-Z1 dC:/ProjetosModelSim/AritmeticaBinaria/sim
+I4CY6Iid[z`WXXD?kKefjW1
+Z1 V`JN@9S9cnhjKRR_L]QIcM3
+Z2 dC:/gitHub/TEC446/AritmeticaBinaria/sim
 w1458511989
-8C:\ProjetosModelSim\AritmeticaBinaria\sim\Banco_Registo.v
-FC:\ProjetosModelSim\AritmeticaBinaria\sim\Banco_Registo.v
+8C:/ProjetosModelSim/AritmeticaBinaria/sim/Banco_Registo.v
+FC:/ProjetosModelSim/AritmeticaBinaria/sim/Banco_Registo.v
 L0 2
-Z2 OV;L;10.3d;59
+Z3 OV;L;10.3d;59
 r1
 !s85 0
 31
-!s108 1458512000.533000
-!s107 C:\ProjetosModelSim\AritmeticaBinaria\sim\Banco_Registo.v|
-!s90 -reportprogress|300|-work|work|-stats=none|C:\ProjetosModelSim\AritmeticaBinaria\sim\Banco_Registo.v|
+!s108 1458671104.617000
+!s107 C:/ProjetosModelSim/AritmeticaBinaria/sim/Banco_Registo.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/ProjetosModelSim/AritmeticaBinaria/sim/Banco_Registo.v|
 !i113 1
-Z3 o-work work
+Z4 o-work work
 n@banco_@registro
 vComplemento_A2
-!s110 1458513204
+R0
 !i10b 1
 !s100 6h83C?d5<1<gI^SS>7ZDH2
-I^iJ]Y?HJeN^10e]oFfRR`0
-R0
+ICD<;kUh:[>l3ejH3De=N@0
 R1
-w1458513196
-8C:\ProjetosModelSim\AritmeticaBinaria\sim\Complemento_A2.v
-FC:\ProjetosModelSim\AritmeticaBinaria\sim\Complemento_A2.v
-L0 1
 R2
+w1458513196
+8C:/ProjetosModelSim/AritmeticaBinaria/sim/Complemento_A2.v
+FC:/ProjetosModelSim/AritmeticaBinaria/sim/Complemento_A2.v
+L0 1
+R3
 r1
 !s85 0
 31
-!s108 1458513204.563000
-!s107 C:\ProjetosModelSim\AritmeticaBinaria\sim\Complemento_A2.v|
-!s90 -reportprogress|300|-work|work|-stats=none|C:\ProjetosModelSim\AritmeticaBinaria\sim\Complemento_A2.v|
+!s108 1458671104.784000
+!s107 C:/ProjetosModelSim/AritmeticaBinaria/sim/Complemento_A2.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/ProjetosModelSim/AritmeticaBinaria/sim/Complemento_A2.v|
 !i113 1
-R3
+R4
 n@complemento_@a2
 vMemoria
-!s110 1458513275
+R0
 !i10b 1
 !s100 ZU0TK7eFlS;TVE_h[NDg?0
-Ii1A<L1AaBAR3k:QOT:3V21
-R0
+IYDQ4mn6G4Ub1k^a4;KSmg3
 R1
-w1458513266
-Z4 8C:\ProjetosModelSim\AritmeticaBinaria\sim\Memoria.v
-Z5 FC:\ProjetosModelSim\AritmeticaBinaria\sim\Memoria.v
-Z6 L0 30
 R2
+w1458670933
+FMemoria.v
+Z5 8C:/ProjetosModelSim/AritmeticaBinaria/sim/Teste.v
+Z6 FC:/ProjetosModelSim/AritmeticaBinaria/sim/Teste.v
+Z7 L0 30
+R3
 r1
 !s85 0
 31
-!s108 1458513275.436000
-!s107 C:\ProjetosModelSim\AritmeticaBinaria\sim\Memoria.v|
-Z7 !s90 -reportprogress|300|-work|work|-stats=none|C:\ProjetosModelSim\AritmeticaBinaria\sim\Memoria.v|
+Z8 !s108 1458671104.916000
+Z9 !s107 Memoria.v|C:/ProjetosModelSim/AritmeticaBinaria/sim/Teste.v|
+Z10 !s90 -reportprogress|300|-work|work|-stats=none|C:/ProjetosModelSim/AritmeticaBinaria/sim/Teste.v|
 !i113 1
-R3
+R4
 n@memoria
 vsp_rom
 !s110 1458489432
 !i10b 1
 !s100 GABMBLFMlN@zXkXF@kb4a2
 IPm168[bMFI5ac@M0jk1^43
-R0
 R1
+dC:/ProjetosModelSim/AritmeticaBinaria/sim
 w1458489428
-R4
-R5
-R6
-R2
+8C:\ProjetosModelSim\AritmeticaBinaria\sim\Memoria.v
+FC:\ProjetosModelSim\AritmeticaBinaria\sim\Memoria.v
+R7
+R3
 r1
 !s85 0
 31
 !s108 1458489432.222000
 !s107 C:\ProjetosModelSim\AritmeticaBinaria\sim\Memoria.v|
-R7
+!s90 -reportprogress|300|-work|work|-stats=none|C:\ProjetosModelSim\AritmeticaBinaria\sim\Memoria.v|
 !i113 1
-R3
+R4
 vTeste
-!s110 1458490544
+R0
 !i10b 1
 !s100 `MbTb=6HRn7RmnlVQ[>Hd3
 IC@4k5e066TiiAHdXU]ef02
-R0
 R1
-w1458490537
-8C:/ProjetosModelSim/AritmeticaBinaria/sim/Teste.v
-FC:/ProjetosModelSim/AritmeticaBinaria/sim/Teste.v
-L0 3
 R2
+w1458490537
+R5
+R6
+L0 3
+R3
 r1
 !s85 0
 31
-!s108 1458490544.214000
-!s107 Memoria.v|C:/ProjetosModelSim/AritmeticaBinaria/sim/Teste.v|
-!s90 -reportprogress|300|-work|work|-stats=none|C:/ProjetosModelSim/AritmeticaBinaria/sim/Teste.v|
+R8
+R9
+R10
 !i113 1
-R3
+R4
 n@teste
