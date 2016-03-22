@@ -1,5 +1,5 @@
 
-module Banco_Registro (hab_escrita, reset, clock, e1, e2,entrada_e1, entrada_e2);  
+module Banco_Registro (hab_escrita, reset, clock, e1, e2, entrada_e1, entrada_e2);  
   
   output reg [15:0] e1, e2;
   input [15:0] entrada_e1, entrada_e2;
