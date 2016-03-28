@@ -64,7 +64,9 @@ int main()
     int result[11] = {0,0,0,0,0,0,0,0,0};
     int formato_saida[10] = {0,0,0,0,0,0,0,0};
     int expoente_result[5];
+    int expoente_int_result = 0;
     int sinal_result = 0;
+
 
     //Verificar se é Infinito ou Zero
     int qtd1 = 0;
@@ -76,6 +78,7 @@ int main()
     int ok = 0;
     int erro = 0;
     int numero_interacao = 0;
+
 
     entrada = fopen("estimulos.txt", "r");
 
@@ -142,40 +145,51 @@ int main()
         imprimir(b,11);
         /***************************************************/
 
-        /****CALCULO DO EXPOENTE PARA DESLOCAMENTO*********/
-        deslocamento = expoente_a - expoente_b;
-
-        if(deslocamento > 0)
-            shift(b, deslocamento);
-        else if(deslocamento < 0)
-            shift(a, deslocamento);
-
-        printf("\nDado Deslocado: ");
-        imprimir(b, 11);
-        /*************************************************/
-
-
-        /****COMPLEMENTO, SOMA E NORMALIZAÇÃO*********/
+        /****COMPLEMENTO, CALCULO DO EXPOENTE PARA DESLOCAMENTO*********/
         if(sinal_b == 1 && sinal_a == 0)
             complemento(b);
         else if(sinal_a == 1 && sinal_b == 0)
             complemento(a);
 
+        deslocamento = expoente_a - expoente_b;
+
+        if(deslocamento > 0)
+        {
+            shift(b, deslocamento);
+            printf("\nDado Deslocado: ");
+            imprimir(b, 11);
+        }
+        else if(deslocamento < 0)
+        {
+            shift(a, deslocamento);
+            printf("\nDado Deslocado: ");
+            imprimir(a, 11);
+        }
+
+        /*************************************************/
+
+
+        /****SOMA E NORMALIZAÇÃO*********/
+
+
+        imprimir(a, 11);
+        imprimir(b, 11);
+
         normalizar = soma(a,b,result);
-        printf("\nNormalizar: %d\n", normalizar);
-
-        printf ("Resultado da soma: ");
+        printf ("\nResultado da soma: ");
         imprimir(result, 11);
-
         printf("\n");
+        printf("\nNormalizar: %d\n", normalizar);
 
         if(expoente_a >= expoente_b)
         {
+            expoente_int_result = expoente_a;
             for(i = 0; i < 5; i++)
                 expoente_result[i] = expoente_binario_a[i];
         }
         else
         {
+            expoente_int_result = expoente_b;
             for(i = 0; i < 5; i++)
                 expoente_result[i] = expoente_binario_b[i];
         }
@@ -183,18 +197,24 @@ int main()
         if(normalizar)
             somaExpoente(expoente_result, normalizar);
 
+        if(expoente_int_result == 14)
+            j = 2;
+        else if(result[0] == 1 && normalizar == 0)
+            j = 1;
+        else
+            j = 0;
 
-        j = 1;
+
         for(i = 0; i < 10; i++)
         {
             formato_saida[i] = result[j];
+            if(j < 10)
             j++;
         }
 
-        if(sinal_a == sinal_b)
+        if(expoente_a >= expoente_b)
             sinal_result = sinal_a;
-        else    sinal_result = 1;
-
+        else    sinal_result = sinal_b;
 
         printf("\nExpoente Result: ");
         imprimir(expoente_result, 5);
@@ -208,7 +228,6 @@ int main()
             else
                 qtd0++;
         }
-
 
         if(qtd1 == 5)
         {
@@ -230,8 +249,6 @@ int main()
         {
             /****************SAIDA NORMALIZADA*****************/
             saida(sinal_result, expoente_result, formato_saida, out);
-
-
         }
 
         printf("\nOut: ");
@@ -240,8 +257,6 @@ int main()
         printf("\nGer: ");
         imprimir(comparar_resultado, 16);
         /*************************************************/
-
-
 
         /****************VALIDAÇÃO DOS DADOS*****************/
 
@@ -274,7 +289,7 @@ int soma (int a[11], int b[11], int result[11])
     for(i = 10; i >= 0; i--)
     {
         temp = (a[i] + b[i]) + over;
-
+        printf("\nTemp %d: %d", i, temp);
         if(temp == 2)
         {
             soma[i] = 0;
@@ -295,23 +310,26 @@ int soma (int a[11], int b[11], int result[11])
             soma[i] = 0;
             over = 0;
         }
+        printf("\nSoma %d: %d", i, soma[i]);
     }
-
-    if(over == 1)
+    /*
+        if(over == 1)
         {
             result[0] = 1;
-            j = 1;
-            for(k = 0; k < 11; k++)
+            j = 0;
+            for(i = 1; i < 11; i++)
             {
-                result[j] = soma[k];
+                result[i] = soma[j];
                 j++;
             }
         }
-    else
-        {
+        else {
             for(i = 0; i < 11; i++)
                 result[i] = soma[i];
-        }
+        }*/
+
+        for(i = 0; i < 11; i++)
+                result[i] = soma[i];
 
     if(over == 1)
         return 1;
@@ -320,14 +338,18 @@ int soma (int a[11], int b[11], int result[11])
 
 void shift(int v[11], int deslocamento)
 {
-    int i = 0, d = deslocamento, j = 0;
-
+    int i = 0, d = 0, j = 0;
     int temp[11];
+
+    if(deslocamento < 0)
+        d = deslocamento * -1;
+    else
+        d = deslocamento;
 
     for(i = 0; i < 11; i++)
         temp[i] = 0;
 
-    for(i = deslocamento; i < 11; i ++)
+    for(i = d; i < 11; i ++)
     {
         temp[i] = v[j];
         j++;
@@ -335,6 +357,8 @@ void shift(int v[11], int deslocamento)
 
     for(i = 0; i < 11; i++)
         v[i] = temp[i];
+
+
 }
 
 void saida(int sinal, int expoente[5], int resultado[10], int out[16])
@@ -348,6 +372,9 @@ void saida(int sinal, int expoente[5], int resultado[10], int out[16])
         j++;
     }
 
+    printf("\nResultado:");
+    for(i = 0; i < 10; i++)
+        printf("%d", resultado[i]);
     j = 0;
     for(i = 6; i < 16; i++)
     {
@@ -395,7 +422,11 @@ void complemento(int v[11])
             v[i] = 1;
         else v[i] = 0;
     }
+        printf("\nValor de V: ");
+    for(i = 0; i < 11; i++)
+        printf("%d", v[i]);
 
+        printf("\n");
     for (i = 10; i >= 0; i--)
     {
         if(i == 10)
@@ -455,7 +486,7 @@ int validacao(int resultado[16], int comparar_resultado[16])
     int erro = 0;
     int i = 0;
 
-    for (i = 1; i < 8; i++)
+    for (i = 1; i < 16; i++)
     {
         if(resultado[i] != comparar_resultado[i])
             erro++;

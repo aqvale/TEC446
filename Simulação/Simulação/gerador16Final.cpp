@@ -1,4 +1,3 @@
-
 #include<stdio.h>
 #include<iostream>
 #include <stdlib.h>
@@ -22,12 +21,65 @@ void imprimir(int *v, int tam)
 
 }
 
+void conversor_float_binario(float numero, int out[16]);
+
 
 
 int main()
 {
 
-    float numero;
+    float numeroA, numeroB, resultado;
+    int out1[16] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    int out2[16] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    int result[16] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    int i = 0;
+    int qtd = 0;
+
+    FILE *saida;
+
+    saida = fopen("estimulos.txt", "w");
+
+    while (qtd != 1000)
+    {
+        numeroA = rand();
+        numeroA = numeroA/1000;
+        conversor_float_binario(numeroA, out1);
+        if(out1[0] == 1)
+            numeroA = numeroA * -1;
+
+        numeroB = rand();
+        numeroB = numeroB/1000;
+        conversor_float_binario(numeroB, out2);
+        if(out2[0] == 1)
+            numeroB = numeroB * -1;
+
+        resultado = numeroA + numeroB;
+        printf("\n%f", resultado);
+        conversor_float_binario(resultado, result);
+
+        for(i = 0; i < 16; i++)
+            fprintf(saida, "%d", out1[i]);
+
+        for(i = 0; i < 16; i++)
+            fprintf(saida, "%d", out2[i]);
+
+        for(i = 0; i < 16; i++)
+            fprintf(saida, "%d", result[i]);
+
+        qtd++;
+        fprintf(saida, "\n");
+    }
+
+
+    fclose(saida);
+
+
+    return 0;
+}
+
+void conversor_float_binario(float numero, int out[16])
+{
+
     double parteInteira, fracao;
     char binInt[16], binFrac[16];
     int binParteInteira[16], binParteFrac[16];
@@ -35,39 +87,22 @@ int main()
     double conversao = 0;
     int temp = 0;
 
-    int out[16] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
     char expoente_char[5];
     int expoente[5];
     int sinal;
     int e = 0;
     int qtd_int = 0, qtd_frac = 0; //Gambiarra
 
-    FILE *saida;
-
-    saida = fopen("estimulos.txt", "w");
-
-
-    cout << "Digite um numero: " << endl;
-    cin >> numero;
 
     fracao = modf(numero, &parteInteira);
 
-    cout << "" << parteInteira << " e " << fracao << endl;
-
-
-
     itoa(parteInteira,binInt,2);
-    printf("O numero %.0f em binario e: %s\n",parteInteira, binInt);
-
     qtd_int = parserBin(binInt, binParteInteira, 16);
-    imprimir(binParteInteira, 16);
-
 
     if(fracao != 0)
     {
         i = 0;
         conversao = fracao;
-        printf("Conversao: %f\n", conversao);
         do
         {
             temp = conversao * 2;
@@ -88,10 +123,8 @@ int main()
         while(conversao != 0);
     }
     binFrac[i] = '\0';
-    printf("A fracao %f em binario e: %s\n", fracao, binFrac);
 
     qtd_frac = parser(binFrac, binParteFrac, 16);
-    imprimir(binParteFrac, 16);
 
     if(qtd_int != 1)
         e = qtd_int-1;
@@ -100,13 +133,7 @@ int main()
     e = e + 15;
 
     itoa(e, expoente_char, 2);
-    printf("expoente: %d em binario e: %s\n", e, expoente_char);
     parser(expoente_char, expoente, 5);
-
-    for(i = 0; i < 5; i++)
-        printf("%d", expoente[i]);
-
-    printf("\n");
 
     out[0] = rand() % 2;
 
@@ -131,17 +158,6 @@ int main()
         out[i] = binParteFrac[j];
         j++;
     }
-
-    imprimir(out, 16);
-
-
-    for(i = 0; i < 16; i++)
-        fprintf(saida, "%d", out[i]);
-
-    fclose(saida);
-
-
-    return 0;
 }
 
 int parserBin(char *v, int *e, int tam)
@@ -170,7 +186,7 @@ int parserBin(char *v, int *e, int tam)
     return deslocamento;
 }
 
-parser(char *v, int *e, int tam)
+int parser(char *v, int *e, int tam)
 {
     int i = 0, j = 0;
     int temp;

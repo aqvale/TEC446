@@ -1,0 +1,26 @@
+http://www.h-schmidt.net/FloatConverter/IEEE754.html - calculo
+
+http://half.sourceforge.net/ - biblioteca C++
+https://en.wikipedia.org/wiki/Half-precision_floating-point_format
+
+Tutorial - http://www.rfwireless-world.com/Tutorials/floating-point-tutorial.html
+Carry - http://www.lume.ufrgs.br/bitstream/handle/10183/12670/000632771.pdf?...
+
+VIdeo https://www.youtube.com/watch?v=KiWz-mGFqHI
+
+Normalizado https://www.cs.umd.edu/class/sum2003/cmsc311/Notes/Data/float.html
+Denormalizado - https://en.wikipedia.org/wiki/Denormal_number
+
+*** http://www-di.inf.puc-rio.br/~endler/courses/inf1612/aula-9.pdf
+
+http://engcompup.blogspot.com.br/2012/08/calculo-numerico-aula-7-fracao-decimal.html - Converter
+
+Random - http://www.cprogressivo.net/2013/03/Como-gerar-numeros-aleatorios-em-C-com-a-rand-srand-e-seed.html
+Arquivos - 
+
+http://www.inf.ufes.br/~zegonc/material/Introducao_a_Computacao/Aritmetica_binaria_Complemento.pdf
+
+Tutorial Verilog
+http://www.cin.ufpe.br/~eaa3/Arquivos/Verilog/Tutorial%20Verilog.pdf
+http://simplefpga.blogspot.com.br/2013/02/universal-shift-left-right.html
+http://www.csit-sun.pub.ro/courses/Masterat/Xilinx%20Synthesis%20Technology/toolbox.xilinx.com/docsan/xilinx4/data/docs/xst/hdlcode8.html
