@@ -39,29 +39,31 @@ int main()
     int result[16] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
     int sinal_result = 0;
     int i = 0;
+    int n1 = 1, n2 = 1;
 
     int interacao = 0;
     FILE *saida;
 
     saida = fopen("estimulos.txt", "w");
 
-    while(interacao != 1) /*************VMUDA AQUI A QUANTIDADE DE VEZES**********/
+    while(interacao != 1000) /*************VMUDA AQUI A QUANTIDADE DE VEZES**********/
     {
-        cout << "Digite o numero A: " << endl;
-        cin >> numeroA;
+        n1 = rand() % 100;
+
+        numeroA = n1/10;
 
         conversor_float_binario(numeroA, out1);
-        out1[0] = 0; /*************MUDAR O SINAL DE A**********/
+        out1[0] = rand() % 1; /*************MUDAR O SINAL DE A**********/
         if(out1[0] == 1)
             numeroA = numeroA * -1;
 
         imprimir(out1, 16);
 
-        cout << "Digite o numero B: " << endl;
-        cin >> numeroB;
+        n1 = rand() % 100;
 
+        numeroB = n1/10;
         conversor_float_binario(numeroB, out2);
-        out2[0] = 0; /*************MUDAR O SINAL DE B**********/
+        out2[0] = rand() % 1; /*************MUDAR O SINAL DE B**********/
         if(out2[0] == 1)
             numeroB = numeroB * -1;
 
@@ -81,6 +83,9 @@ int main()
         else
         {
             sinal_result = 0;
+
+
+
             conversor_float_binario(resultado, result);
             result[0] = sinal_result;
         }
@@ -98,6 +103,7 @@ int main()
         interacao++;
         fprintf(saida, "\n");
     }
+
     fclose(saida);
 
 

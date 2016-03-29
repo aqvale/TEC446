@@ -28,12 +28,14 @@ void somaExpoente(int v[5], int normalizado);
 void saida(int sinal, int expoente[5], int resultado[10], int out[16]);
 void complemento(int v[11]);
 void separar_dado(int reg_in[48],int in1[16], int in2[16], int comparar_resultado[16]);
-int validacao(int resultado[16], int comparar_resultado[16]);
+int validacao(int *resultado, int *comparar_resultado, int tam);
 void parser(char *v, int *e, int tam);
 
 int parserNormalExp(char *v, int *e, int tam);
 void parserExp(char *v, int *e, int tam);
 void parserExpNegativo(char *v, int *e, int tam);
+
+void limpar(int *a, int tam);
 
 int main()
 {
@@ -78,10 +80,12 @@ int main()
     //Validação dos Dados
     int qtd_arredondamento_zero = 0;
     int qtd_arredondamento_infinito = 0;
+    int qNan = 0, sNan = 0;
     int ok = 0;
     int erro = 0;
     int numero_interacao = 0;
 
+    int entrou = 0;
 
     entrada = fopen("estimulos.txt", "r");
 
@@ -92,6 +96,26 @@ int main()
 
     while(!feof(entrada))
     {
+
+        limpar(result, 11);
+        limpar(formato_saida, 10);
+        limpar(expoente_result, 5);
+        expoente_int_result = 0;
+        sinal_result = 0;
+
+        for(i = 0; i < 11; i++)
+        {
+            if(i == 0)
+            {
+                a[i] = 1;
+                b[i] = 1;
+            }
+            else
+            {
+                a[i] = 0;
+                b[i] = 0;
+            }
+        }
 
         fscanf (entrada, "%s ", reg_temp);
 
@@ -148,163 +172,183 @@ int main()
         imprimir(b,11);
         /***************************************************/
 
-        /****COMPLEMENTO, CALCULO DO EXPOENTE PARA DESLOCAMENTO*********/
-        if(sinal_b == 1 && sinal_a == 0)
-            complemento(b);
-        else if(sinal_a == 1 && sinal_b == 0)
-            complemento(a);
-
-        imprimir(a, 11);
-        imprimir(b, 11);
-
+        /****SUBTRAÇÃO DE 2 NÚMEROS IGUAIS*********/
         deslocamento = expoente_a - expoente_b;
 
-        if(deslocamento > 0)
+        if(validacao(a, b, 11) && deslocamento == 0 && (sinal_a != sinal_b))
         {
-            shift(b, deslocamento);
-            printf("\nDado Deslocado: ");
-            imprimir(b, 11);
-        }
-        else if(deslocamento < 0)
-        {
-            shift(a, deslocamento);
-            printf("\nDado Deslocado: ");
-            imprimir(a, 11);
-        }
-
-        /*************************************************/
-
-
-        /****SOMA E NORMALIZAÇÃO*********/
-
-        normalizar = soma(a,b,result);
-        printf ("\nResultado da soma: ");
-        imprimir(result, 11);
-        printf("\n");
-        printf("\nNormalizar: %d\n", normalizar);
-
-        if(expoente_a >= expoente_b)
-        {
-            if(sinal_a == 1)
-            {
-                expoente_int_result = expoente_b;
-                for(i = 0; i < 5; i++)
-                    expoente_result[i] = expoente_binario_b[i];
-            }
-            else
-            {
-                expoente_int_result = expoente_a;
-                for(i = 0; i < 5; i++)
-                    expoente_result[i] = expoente_binario_a[i];
-            }
-        }
-        else
-        {
-            if(sinal_b == 1)
-            {
-                expoente_int_result = expoente_a;
-                for(i = 0; i < 5; i++)
-                    expoente_result[i] = expoente_binario_a[i];
-            }
-            else
-            {
-                expoente_int_result = expoente_b;
-                for(i = 0; i < 5; i++)
-                    expoente_result[i] = expoente_binario_b[i];
-            }
-        }
-
-        char temp[5];
-        if(normalizar)
-        {
-            if(sinal_a == 0 && sinal_b == 0 || sinal_a == 1 && sinal_b == 1)
-                somaExpoente(expoente_result, normalizar);
-        }
-
-        if((sinal_a == 1 && sinal_b == 0 || sinal_a == 0 && sinal_b == 1) && expoente_int_result > 15)
-        {
-            if(deslocamento > 1)
-            {
-                 if(expoente_a >= expoente_b)
-                 {
-                     for(i = 0; i < 5; i++)
-                        expoente_result[i] = expoente_binario_a[i];
-                 }
-                 else
-                 {
-                     for(i = 0; i < 5; i++)
-                        expoente_result[i] = expoente_binario_b[i];
-                 }
-            }
-            else
-            {
-                 expoente_int_result = expoente_int_result - 1;
-            itoa(expoente_int_result, temp, 2);
-
-            if(expoente_int_result == 15)
-                parserExp(temp, expoente_result, 4);
-            else if(expoente_int_result < 15)
-                parserExpNegativo(temp, expoente_result, 5);
-            else
-                parser(temp, expoente_result, 5);
-            }
-        }
-
-
-        if(expoente_int_result == 14)
-            j = 2;
-        else if(result[0] == 1 && normalizar == 0)
-            j = 1;
-        else
-            j = 0;
-
-
-        for(i = 0; i < 10; i++)
-        {
-            formato_saida[i] = result[j];
-            if(j < 10)
-                j++;
-        }
-
-        if(expoente_a >= expoente_b)
-            sinal_result = sinal_a;
-        else    sinal_result = sinal_b;
-
-        printf("\nExpoente Result: ");
-        imprimir(expoente_result, 5);
-        /*************************************************/
-
-        /*************VERIFICAR INFINITO OU ZERO**********/
-        for(i = 0; i < 5; i++)
-        {
-            if(expoente_result[i])
-                qtd1++;
-            else
-                qtd0++;
-        }
-
-        if(qtd1 == 5)
-        {
-            qtd_arredondamento_infinito++;
-            out[0] = 0;
-            for(i = 1; i < 6; i++)
-                out[i] = 1;
-
-            for(i = 6; i < 16; i++)
-                out[i] = 0;
-        }
-        else if (qtd0 == 5)
-        {
+            entrou++;
             qtd_arredondamento_zero++;
             for(i = 0; i < 16; i++)
                 out[i] = 0;
-        }
+        }/***************************************************/
         else
         {
-            /****************SAIDA NORMALIZADA*****************/
-            saida(sinal_result, expoente_result, formato_saida, out);
-        }
 
+            /****COMPLEMENTO, CALCULO DO EXPOENTE PARA DESLOCAMENTO*********/
+            if(sinal_b == 1 && sinal_a == 0)
+                complemento(b);
+            else if(sinal_a == 1 && sinal_b == 0)
+                complemento(a);
+
+            imprimir(a, 11);
+            imprimir(b, 11);
+
+            if(deslocamento > 0)
+            {
+                shift(b, deslocamento);
+                printf("\nDado Deslocado: ");
+                imprimir(b, 11);
+            }
+            else if(deslocamento < 0)
+            {
+                shift(a, deslocamento);
+                printf("\nDado Deslocado: ");
+                imprimir(a, 11);
+            }
+
+            /*************************************************/
+
+
+            /****SOMA E NORMALIZAÇÃO*********/
+
+            normalizar = soma(a,b,result);
+            printf ("\nResultado da soma: ");
+            imprimir(result, 11);
+            printf("\n");
+            printf("\nNormalizar: %d\n", normalizar);
+
+            if(expoente_a >= expoente_b)
+            {
+                if(sinal_a == 1)
+                {
+                    expoente_int_result = expoente_b;
+                    for(i = 0; i < 5; i++)
+                        expoente_result[i] = expoente_binario_b[i];
+                }
+                else
+                {
+                    expoente_int_result = expoente_a;
+                    for(i = 0; i < 5; i++)
+                        expoente_result[i] = expoente_binario_a[i];
+                }
+            }
+            else
+            {
+                if(sinal_b == 1)
+                {
+                    expoente_int_result = expoente_a;
+                    for(i = 0; i < 5; i++)
+                        expoente_result[i] = expoente_binario_a[i];
+                }
+                else
+                {
+                    expoente_int_result = expoente_b;
+                    for(i = 0; i < 5; i++)
+                        expoente_result[i] = expoente_binario_b[i];
+                }
+            }
+
+            char temp[5];
+            if(normalizar)
+            {
+                if(sinal_a == 0 && sinal_b == 0 || sinal_a == 1 && sinal_b == 1)
+                    somaExpoente(expoente_result, normalizar);
+            }
+
+            if((sinal_a == 1 && sinal_b == 0 || sinal_a == 0 && sinal_b == 1) && expoente_int_result > 15)
+            {
+                if(deslocamento > 1)
+                {
+                    if(expoente_a >= expoente_b)
+                    {
+                        for(i = 0; i < 5; i++)
+                            expoente_result[i] = expoente_binario_a[i];
+                    }
+                    else
+                    {
+                        for(i = 0; i < 5; i++)
+                            expoente_result[i] = expoente_binario_b[i];
+                    }
+                }
+                else
+                {
+                    expoente_int_result = expoente_int_result - 1;
+                    itoa(expoente_int_result, temp, 2);
+
+                    if(expoente_int_result == 15)
+                        parserExp(temp, expoente_result, 4);
+                    else if(expoente_int_result < 15)
+                        parserExpNegativo(temp, expoente_result, 5);
+                    else
+                        parser(temp, expoente_result, 5);
+                }
+            }
+
+
+            if(expoente_int_result == 14)
+                j = 2;
+            else if(result[0] == 1 && normalizar == 0)
+                j = 1;
+            else
+                j = 0;
+
+
+            for(i = 0; i < 10; i++)
+            {
+                formato_saida[i] = result[j];
+                if(j < 10)
+                    j++;
+            }
+
+            if(expoente_a >= expoente_b)
+                sinal_result = sinal_a;
+            else    sinal_result = sinal_b;
+
+            printf("\nExpoente Result: ");
+            imprimir(expoente_result, 5);
+            /*************************************************/
+
+            /*************VERIFICAR INFINITO**********/
+            for(i = 0; i < 5; i++)
+            {
+                if(expoente_result[i])
+                    qtd1++;
+            }
+
+            for(i = 0; i < 10; i++)
+            {
+                if(!formato_saida[i])
+                    qtd0++;
+            }
+
+            if(qtd1 == 5)
+            {
+                if(qtd0 == 10)
+                {
+                    qtd_arredondamento_infinito++;
+                    out[0] = 0;
+                    for(i = 1; i < 6; i++)
+                        out[i] = 1;
+
+                    for(i = 6; i < 16; i++)
+                        out[i] = 0;
+                }
+                else
+                {
+                    if(formato_saida[0] == 1)
+                        qNan++;
+                    else
+                        sNan++;
+                }
+
+            }
+            else
+            {
+                /****************SAIDA NORMALIZADA*****************/
+                saida(sinal_result, expoente_result, formato_saida, out);
+            }
+        }
         printf("\nOut: ");
         imprimir(out, 16);
 
@@ -314,11 +358,12 @@ int main()
 
         /****************VALIDAÇÃO DOS DADOS*****************/
 
-        if(validacao(out, comparar_resultado))
+        if(validacao(out, comparar_resultado, 14))
             ok++;
-        else
+        else if(!entrou)
             erro++;
 
+        entrou = 0;
         numero_interacao++;
     }
 
@@ -327,6 +372,8 @@ int main()
     printf("\nQuantidade Erros: %d", erro);
     printf("\nQuantidade de arredondamentos zero: %d", qtd_arredondamento_zero);
     printf("\nQuantidade de arredondamentos infinito: %d", qtd_arredondamento_infinito);
+    printf("\nQuantidade de arredondamentos QNaN: %d", qNan);
+    printf("\nQuantidade de arredondamentos SNan: %d", sNan);
 
     fclose(entrada);
 
@@ -343,7 +390,7 @@ int soma (int a[11], int b[11], int result[11])
     for(i = 10; i >= 0; i--)
     {
         temp = (a[i] + b[i]) + over;
-        printf("\nTemp %d: %d", i, temp);
+        //printf("\nTemp %d: %d", i, temp);
         if(temp == 2)
         {
             soma[i] = 0;
@@ -364,7 +411,7 @@ int soma (int a[11], int b[11], int result[11])
             soma[i] = 0;
             over = 0;
         }
-        printf("\nSoma %d: %d", i, soma[i]);
+        //printf("\nSoma %d: %d", i, soma[i]);
     }
     /*
         if(over == 1)
@@ -537,12 +584,12 @@ void separar_dado(int reg_in[48],int in1[16], int in2[16], int comparar_resultad
     }
 }
 
-int validacao(int resultado[16], int comparar_resultado[16])
+int validacao(int *resultado, int *comparar_resultado, int tam)
 {
     int erro = 0;
     int i = 0;
 
-    for (i = 1; i < 16; i++)
+    for (i = 1; i < tam; i++)
     {
         if(resultado[i] != comparar_resultado[i])
             erro++;
@@ -637,7 +684,6 @@ void parserExpNegativo(char *v, int *e, int tam)
     }
 }
 
-
 void imprimir(int *v, int tam)
 {
     int i = 0;
@@ -649,3 +695,12 @@ void imprimir(int *v, int tam)
 
 }
 
+void limpar(int *a, int tam)
+{
+    int i = 0;
+
+    for (i = 0; i < tam; i++)
+    {
+        a[i] = 0;
+    }
+}
