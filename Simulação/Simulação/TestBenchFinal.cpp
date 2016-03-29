@@ -31,6 +31,9 @@ void separar_dado(int reg_in[48],int in1[16], int in2[16], int comparar_resultad
 int validacao(int resultado[16], int comparar_resultado[16]);
 void parser(char *v, int *e, int tam);
 
+int parserNormalExp(char *v, int *e, int tam);
+void parserExp(char *v, int *e, int tam);
+void parserExpNegativo(char *v, int *e, int tam);
 
 int main()
 {
@@ -151,6 +154,9 @@ int main()
         else if(sinal_a == 1 && sinal_b == 0)
             complemento(a);
 
+        imprimir(a, 11);
+        imprimir(b, 11);
+
         deslocamento = expoente_a - expoente_b;
 
         if(deslocamento > 0)
@@ -171,10 +177,6 @@ int main()
 
         /****SOMA E NORMALIZAÇÃO*********/
 
-
-        imprimir(a, 11);
-        imprimir(b, 11);
-
         normalizar = soma(a,b,result);
         printf ("\nResultado da soma: ");
         imprimir(result, 11);
@@ -183,19 +185,71 @@ int main()
 
         if(expoente_a >= expoente_b)
         {
-            expoente_int_result = expoente_a;
-            for(i = 0; i < 5; i++)
-                expoente_result[i] = expoente_binario_a[i];
+            if(sinal_a == 1)
+            {
+                expoente_int_result = expoente_b;
+                for(i = 0; i < 5; i++)
+                    expoente_result[i] = expoente_binario_b[i];
+            }
+            else
+            {
+                expoente_int_result = expoente_a;
+                for(i = 0; i < 5; i++)
+                    expoente_result[i] = expoente_binario_a[i];
+            }
         }
         else
         {
-            expoente_int_result = expoente_b;
-            for(i = 0; i < 5; i++)
-                expoente_result[i] = expoente_binario_b[i];
+            if(sinal_b == 1)
+            {
+                expoente_int_result = expoente_a;
+                for(i = 0; i < 5; i++)
+                    expoente_result[i] = expoente_binario_a[i];
+            }
+            else
+            {
+                expoente_int_result = expoente_b;
+                for(i = 0; i < 5; i++)
+                    expoente_result[i] = expoente_binario_b[i];
+            }
         }
 
+        char temp[5];
         if(normalizar)
-            somaExpoente(expoente_result, normalizar);
+        {
+            if(sinal_a == 0 && sinal_b == 0 || sinal_a == 1 && sinal_b == 1)
+                somaExpoente(expoente_result, normalizar);
+        }
+
+        if((sinal_a == 1 && sinal_b == 0 || sinal_a == 0 && sinal_b == 1) && expoente_int_result > 15)
+        {
+            if(deslocamento > 1)
+            {
+                 if(expoente_a >= expoente_b)
+                 {
+                     for(i = 0; i < 5; i++)
+                        expoente_result[i] = expoente_binario_a[i];
+                 }
+                 else
+                 {
+                     for(i = 0; i < 5; i++)
+                        expoente_result[i] = expoente_binario_b[i];
+                 }
+            }
+            else
+            {
+                 expoente_int_result = expoente_int_result - 1;
+            itoa(expoente_int_result, temp, 2);
+
+            if(expoente_int_result == 15)
+                parserExp(temp, expoente_result, 4);
+            else if(expoente_int_result < 15)
+                parserExpNegativo(temp, expoente_result, 5);
+            else
+                parser(temp, expoente_result, 5);
+            }
+        }
+
 
         if(expoente_int_result == 14)
             j = 2;
@@ -209,7 +263,7 @@ int main()
         {
             formato_saida[i] = result[j];
             if(j < 10)
-            j++;
+                j++;
         }
 
         if(expoente_a >= expoente_b)
@@ -328,8 +382,8 @@ int soma (int a[11], int b[11], int result[11])
                 result[i] = soma[i];
         }*/
 
-        for(i = 0; i < 11; i++)
-                result[i] = soma[i];
+    for(i = 0; i < 11; i++)
+        result[i] = soma[i];
 
     if(over == 1)
         return 1;
@@ -422,11 +476,8 @@ void complemento(int v[11])
             v[i] = 1;
         else v[i] = 0;
     }
-        printf("\nValor de V: ");
-    for(i = 0; i < 11; i++)
-        printf("%d", v[i]);
 
-        printf("\n");
+
     for (i = 10; i >= 0; i--)
     {
         if(i == 10)
@@ -451,6 +502,11 @@ void complemento(int v[11])
 
     for(i = 0; i < 11; i++)
         v[i] = soma[i];
+
+    printf("\nValor de V: ");
+    for(i = 0; i < 11; i++)
+        printf("%d", v[i]);
+    printf("\n");
 
 }
 
@@ -513,6 +569,74 @@ void parser(char *v, int *e, int tam)
         j++;
     }
 }
+
+int parserNormalExp(char *v, int *e, int tam)
+{
+    int i = 0, j = 0;
+    int temp;
+    int qtd = 0;
+
+    for(i = 0; v[i] != '\0'; i++)
+        qtd++;
+
+    for(i = 0; i < tam; i++)
+    {
+        temp = v[i];
+        if(temp == 48)
+            e[i] = 0;
+        else if(temp == 49)
+            e[i] = 1;
+        else e[i] = 0;
+    }
+
+    return qtd;
+}
+
+void parserExp(char *v, int *e, int tam)
+{
+    int i = 0, j = 0;
+    int temp;
+
+
+    for(i = tam; i >= 0; i--)
+    {
+        temp = v[i];
+        if(temp == 48)
+            e[j] = 0;
+        else if(temp == 49)
+            e[j] = 1;
+        else e[j] = 0;
+        j++;
+    }
+
+}
+
+void parserExpNegativo(char *v, int *e, int tam)
+{
+    int i = 0, j = 0;
+    int temp;
+    char aux[5];
+
+    aux[0] = '0';
+
+    for(i = 1; i < 5; i++)
+    {
+        aux[i] = v[j];
+        j++;
+    }
+    j = 0;
+    for(i = 0; i < tam; i++)
+    {
+        temp = aux[i];
+        if(temp == 48)
+            e[j] = 0;
+        else if(temp == 49)
+            e[j] = 1;
+        else e[j] = 0;
+        j++;
+    }
+}
+
 
 void imprimir(int *v, int tam)
 {
