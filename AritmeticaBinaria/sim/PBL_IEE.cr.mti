@@ -1,0 +1,71 @@
+C:/gitHub/TEC446/AritmeticaBinaria/sim/Normaliza.v {1 {vlog -work work -stats=none C:/gitHub/TEC446/AritmeticaBinaria/sim/Normaliza.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module Normaliza
+
+Top level modules:
+	Normaliza
+
+} {} {}} C:/gitHub/TEC446/AritmeticaBinaria/sim/Banco_Registro.v {1 {vlog -work work -stats=none C:/gitHub/TEC446/AritmeticaBinaria/sim/Banco_Registro.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module Banco_Registro
+
+Top level modules:
+	Banco_Registro
+
+} {} {}} C:/gitHub/TEC446/AritmeticaBinaria/sim/subtracaoTeste.v {1 {vlog -work work -stats=none C:/gitHub/TEC446/AritmeticaBinaria/sim/subtracaoTeste.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module subtracaoTeste
+
+Top level modules:
+	subtracaoTeste
+
+} {} {}} C:/gitHub/TEC446/AritmeticaBinaria/sim/Teste.v {1 {vlog -work work -stats=none C:/gitHub/TEC446/AritmeticaBinaria/sim/Teste.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module teste
+
+Top level modules:
+	teste
+
+} {} {}} C:/gitHub/TEC446/AritmeticaBinaria/sim/Memoria.v {1 {vlog -work work -stats=none C:/gitHub/TEC446/AritmeticaBinaria/sim/Memoria.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module Memoria
+
+Top level modules:
+	Memoria
+
+} {} {}} C:/gitHub/TEC446/AritmeticaBinaria/sim/Deslocamento.v {1 {vlog -work work -stats=none C:/gitHub/TEC446/AritmeticaBinaria/sim/Deslocamento.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module Descocamento
+
+Top level modules:
+	Descocamento
+
+} {} {}} C:/gitHub/TEC446/AritmeticaBinaria/sim/ALU.v {1 {vlog -work work -stats=none C:/gitHub/TEC446/AritmeticaBinaria/sim/ALU.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module ALU
+
+Top level modules:
+	ALU
+
+} {} {}} C:/gitHub/TEC446/AritmeticaBinaria/sim/Integrador.v {1 {vlog -work work -stats=none C:/gitHub/TEC446/AritmeticaBinaria/sim/Integrador.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module Integrador
+
+Top level modules:
+	Integrador
+
+} {} {}} C:/gitHub/TEC446/AritmeticaBinaria/sim/Resultado.v {1 {vlog -work work -stats=none C:/gitHub/TEC446/AritmeticaBinaria/sim/Resultado.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module Resultado
+
+Top level modules:
+	Resultado
+
+} {} {}} C:/gitHub/TEC446/AritmeticaBinaria/sim/Controler.v {1 {vlog -work work -stats=none C:/gitHub/TEC446/AritmeticaBinaria/sim/Controler.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module Controler
+
+Top level modules:
+	Controler
+
+} {} {}}

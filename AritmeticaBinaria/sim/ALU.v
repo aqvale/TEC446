@@ -1,15 +1,17 @@
-module ALU(s1, s2, result, carry);
-input [10:0] s1, s2;
-output reg [10:0] result;
-output reg carry;
+module ALU(sinal_A, sinal_B, mantissa_A, mantissa_B, mantissa_Resultado, sinal_Resultado);
+input sinal_A, sinal_B;
+input [10:0] mantissa_A, mantissa_B;
+output reg sinal_Resultado;
+output reg [11:0] mantissa_Resultado;
 
-reg [11:0] auxResult;
 
-always @(s1 or s2)begin
-	auxResult = 12'b000000000000;
-	auxResult = s1 + s2;
-	carry = auxResult[11];
-	result = auxResult[10:0];
+always @(sinal_A or sinal_B or mantissa_A or mantissa_B) begin
+	if(sinal_A == sinal_B) 
+		mantissa_Resultado = mantissa_A + mantissa_B;
+	else 
+		mantissa_Resultado = mantissa_A - mantissa_B;	
+	
+	sinal_Resultado = sinal_A;
 end
 
 endmodule 

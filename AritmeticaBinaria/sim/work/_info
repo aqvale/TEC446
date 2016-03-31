@@ -8,35 +8,77 @@ z2
 !i10f 100
 cModel Technology
 dC:/ProjetosModelSim/problema2/sim
-vBanco_Registro
-Z0 !s110 1458671104
+vALU
+Z0 !s110 1459451883
 !i10b 1
-!s100 5LX3Y_QD3Zj`Q@Q>z2:HS3
-I4CY6Iid[z`WXXD?kKefjW1
+!s100 1>AaebeMnb]@X1eQWjBOF2
+Ic[lk0LoRXO_J:`Q^:4ja=3
 Z1 V`JN@9S9cnhjKRR_L]QIcM3
 Z2 dC:/gitHub/TEC446/AritmeticaBinaria/sim
-w1458511989
-8C:/ProjetosModelSim/AritmeticaBinaria/sim/Banco_Registo.v
-FC:/ProjetosModelSim/AritmeticaBinaria/sim/Banco_Registo.v
-L0 2
+w1459251002
+8C:/gitHub/TEC446/AritmeticaBinaria/sim/ALU.v
+FC:/gitHub/TEC446/AritmeticaBinaria/sim/ALU.v
+L0 1
 Z3 OV;L;10.3d;59
 r1
 !s85 0
 31
-!s108 1458671104.617000
-!s107 C:/ProjetosModelSim/AritmeticaBinaria/sim/Banco_Registo.v|
-!s90 -reportprogress|300|-work|work|-stats=none|C:/ProjetosModelSim/AritmeticaBinaria/sim/Banco_Registo.v|
+!s108 1459451883.282000
+!s107 C:/gitHub/TEC446/AritmeticaBinaria/sim/ALU.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/gitHub/TEC446/AritmeticaBinaria/sim/ALU.v|
 !i113 1
 Z4 o-work work
-n@banco_@registro
-vComplemento_A2
+n@a@l@u
+vBanco_Registro
 R0
 !i10b 1
-!s100 6h83C?d5<1<gI^SS>7ZDH2
-ICD<;kUh:[>l3ejH3De=N@0
+!s100 :M?YE>BihL;a0j12l@0?E0
+I3Q>Ed9Y>L?W1EQB^[?0og0
 R1
 R2
-w1458513196
+w1459251211
+8C:/gitHub/TEC446/AritmeticaBinaria/sim/Banco_Registro.v
+FC:/gitHub/TEC446/AritmeticaBinaria/sim/Banco_Registro.v
+L0 2
+R3
+r1
+!s85 0
+31
+!s108 1459451883.564000
+!s107 C:/gitHub/TEC446/AritmeticaBinaria/sim/Banco_Registro.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/gitHub/TEC446/AritmeticaBinaria/sim/Banco_Registro.v|
+!i113 1
+R4
+n@banco_@registro
+vCalc_Deslocamento
+!s110 1459358662
+!i10b 1
+!s100 I?i=_:UXa`M0SDo^_D[_43
+IajHz^cE1OnX7WliF3l_ea3
+R1
+R2
+w1458672249
+8C:/gitHub/TEC446/AritmeticaBinaria/sim/Calc_Deslocamento.v
+FC:/gitHub/TEC446/AritmeticaBinaria/sim/Calc_Deslocamento.v
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1459358662.357000
+!s107 C:/gitHub/TEC446/AritmeticaBinaria/sim/Calc_Deslocamento.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/gitHub/TEC446/AritmeticaBinaria/sim/Calc_Deslocamento.v|
+!i113 1
+R4
+n@calc_@deslocamento
+vComplemento_A2
+!s110 1459451879
+!i10b 1
+!s100 DmnjGhfGO]<1H<6z>O_5o3
+IRZ@FPnl@bhJ4072?f]c:Z3
+R1
+R2
+w1458774316
 8C:/ProjetosModelSim/AritmeticaBinaria/sim/Complemento_A2.v
 FC:/ProjetosModelSim/AritmeticaBinaria/sim/Complemento_A2.v
 L0 1
@@ -44,34 +86,159 @@ R3
 r1
 !s85 0
 31
-!s108 1458671104.784000
+!s108 1459451879.379000
 !s107 C:/ProjetosModelSim/AritmeticaBinaria/sim/Complemento_A2.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/ProjetosModelSim/AritmeticaBinaria/sim/Complemento_A2.v|
 !i113 1
 R4
 n@complemento_@a2
-vMemoria
+vControler
 R0
 !i10b 1
-!s100 ZU0TK7eFlS;TVE_h[NDg?0
-IYDQ4mn6G4Ub1k^a4;KSmg3
+!s100 @YLGQiiIdVHNejRlCZ^`Y0
+Ic@M:4eOioK8o]In4Z>TDf3
 R1
 R2
-w1458670933
-FMemoria.v
-Z5 8C:/ProjetosModelSim/AritmeticaBinaria/sim/Teste.v
-Z6 FC:/ProjetosModelSim/AritmeticaBinaria/sim/Teste.v
-Z7 L0 30
+w1459447839
+8C:/gitHub/TEC446/AritmeticaBinaria/sim/Controler.v
+FC:/gitHub/TEC446/AritmeticaBinaria/sim/Controler.v
+L0 1
 R3
 r1
 !s85 0
 31
-Z8 !s108 1458671104.916000
-Z9 !s107 Memoria.v|C:/ProjetosModelSim/AritmeticaBinaria/sim/Teste.v|
-Z10 !s90 -reportprogress|300|-work|work|-stats=none|C:/ProjetosModelSim/AritmeticaBinaria/sim/Teste.v|
+!s108 1459451883.720000
+!s107 C:/gitHub/TEC446/AritmeticaBinaria/sim/Controler.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/gitHub/TEC446/AritmeticaBinaria/sim/Controler.v|
+!i113 1
+R4
+n@controler
+vDescocamento
+R0
+!i10b 1
+!s100 SEjPlZlLJWFFO_W6?AhQ13
+IE?PO]Fi;:2dGTmXb_>Plz3
+R1
+R2
+w1459443556
+8C:/gitHub/TEC446/AritmeticaBinaria/sim/Deslocamento.v
+FC:/gitHub/TEC446/AritmeticaBinaria/sim/Deslocamento.v
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1459451883.892000
+!s107 C:/gitHub/TEC446/AritmeticaBinaria/sim/Deslocamento.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/gitHub/TEC446/AritmeticaBinaria/sim/Deslocamento.v|
+!i113 1
+R4
+n@descocamento
+vIntegrador
+Z5 !s110 1459451884
+!i10b 1
+!s100 4XkXQJm8VH8Do28eZIN<d0
+I2=aQ]PLGCLlW4;85MBm_M2
+R1
+R2
+w1459447803
+8C:/gitHub/TEC446/AritmeticaBinaria/sim/Integrador.v
+FC:/gitHub/TEC446/AritmeticaBinaria/sim/Integrador.v
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1459451884.138000
+!s107 C:/gitHub/TEC446/AritmeticaBinaria/sim/Integrador.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/gitHub/TEC446/AritmeticaBinaria/sim/Integrador.v|
+!i113 1
+R4
+n@integrador
+vMemoria
+R5
+!i10b 1
+!s100 R<hLULcg_^C1^f@9idWBG1
+IPFYLNNIR6V;j59lFl8[jA0
+R1
+R2
+w1459447784
+8C:/gitHub/TEC446/AritmeticaBinaria/sim/Memoria.v
+FC:/gitHub/TEC446/AritmeticaBinaria/sim/Memoria.v
+Z6 L0 30
+R3
+r1
+!s85 0
+31
+!s108 1459451884.013000
+!s107 C:/gitHub/TEC446/AritmeticaBinaria/sim/Memoria.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/gitHub/TEC446/AritmeticaBinaria/sim/Memoria.v|
 !i113 1
 R4
 n@memoria
+vNormaliza
+R5
+!i10b 1
+!s100 7FDZiE6dcQWGI?O0X>kC60
+Iz^_Zn2?mK6zN3L981MjzO0
+R1
+R2
+w1459384889
+8C:/gitHub/TEC446/AritmeticaBinaria/sim/Normaliza.v
+FC:/gitHub/TEC446/AritmeticaBinaria/sim/Normaliza.v
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1459451884.263000
+!s107 C:/gitHub/TEC446/AritmeticaBinaria/sim/Normaliza.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/gitHub/TEC446/AritmeticaBinaria/sim/Normaliza.v|
+!i113 1
+R4
+n@normaliza
+vNormliza
+!s110 1459251017
+!i10b 1
+!s100 <mGJoiVeTf2[TE9K@`:f33
+I:MeIa_HO6n1AafdzjkY0E2
+R1
+R2
+w1459249932
+8C:\gitHub\TEC446\AritmeticaBinaria\sim\Normaliza.v
+FC:\gitHub\TEC446\AritmeticaBinaria\sim\Normaliza.v
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1459251017.573000
+!s107 C:\gitHub\TEC446\AritmeticaBinaria\sim\Normaliza.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:\gitHub\TEC446\AritmeticaBinaria\sim\Normaliza.v|
+!i113 1
+R4
+n@normliza
+vResultado
+Z7 !s110 1459451882
+!i10b 1
+!s100 8k:8[WeUA6I;gQPJTi?R;0
+I6><0@4217WLVQ^Nj92C>81
+R1
+R2
+w1459301610
+8C:/gitHub/TEC446/AritmeticaBinaria/sim/Resultado.v
+FC:/gitHub/TEC446/AritmeticaBinaria/sim/Resultado.v
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1459451882.736000
+!s107 C:/gitHub/TEC446/AritmeticaBinaria/sim/Resultado.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/gitHub/TEC446/AritmeticaBinaria/sim/Resultado.v|
+!i113 1
+R4
+n@resultado
 vsp_rom
 !s110 1458489432
 !i10b 1
@@ -82,7 +249,7 @@ dC:/ProjetosModelSim/AritmeticaBinaria/sim
 w1458489428
 8C:\ProjetosModelSim\AritmeticaBinaria\sim\Memoria.v
 FC:\ProjetosModelSim\AritmeticaBinaria\sim\Memoria.v
-R7
+R6
 R3
 r1
 !s85 0
@@ -92,24 +259,86 @@ r1
 !s90 -reportprogress|300|-work|work|-stats=none|C:\ProjetosModelSim\AritmeticaBinaria\sim\Memoria.v|
 !i113 1
 R4
-vTeste
+vsubtracaoTeste
+R7
+!i10b 1
+!s100 h1z?nJL^in6HS6Al^lhB81
+I77lGZnmkeQL6Fn>5lbEn`3
+R1
+R2
+w1459292844
+8C:/gitHub/TEC446/AritmeticaBinaria/sim/subtracaoTeste.v
+FC:/gitHub/TEC446/AritmeticaBinaria/sim/subtracaoTeste.v
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1459451882.845000
+!s107 C:/gitHub/TEC446/AritmeticaBinaria/sim/subtracaoTeste.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/gitHub/TEC446/AritmeticaBinaria/sim/subtracaoTeste.v|
+!i113 1
+R4
+nsubtracao@teste
+vteste
 R0
+!i10b 1
+!s100 2SY2EEm]]_F?2]?:4IijV0
+I`[7k^fd?A;k3eP]Y:9<a_0
+R1
+R2
+w1459381203
+8C:/gitHub/TEC446/AritmeticaBinaria/sim/Teste.v
+FC:/gitHub/TEC446/AritmeticaBinaria/sim/Teste.v
+L0 8
+R3
+r1
+!s85 0
+31
+!s108 1459451883.001000
+!s107 C:/gitHub/TEC446/AritmeticaBinaria/sim/Teste.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/gitHub/TEC446/AritmeticaBinaria/sim/Teste.v|
+!i113 1
+R4
+vTeste
+!s110 1458671104
 !i10b 1
 !s100 `MbTb=6HRn7RmnlVQ[>Hd3
 IC@4k5e066TiiAHdXU]ef02
 R1
 R2
 w1458490537
-R5
-R6
+8C:/ProjetosModelSim/AritmeticaBinaria/sim/Teste.v
+FC:/ProjetosModelSim/AritmeticaBinaria/sim/Teste.v
 L0 3
 R3
 r1
 !s85 0
 31
-R8
-R9
-R10
+!s108 1458671104.916000
+!s107 Memoria.v|C:/ProjetosModelSim/AritmeticaBinaria/sim/Teste.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/ProjetosModelSim/AritmeticaBinaria/sim/Teste.v|
 !i113 1
 R4
 n@teste
+vtesteUnidade
+R0
+!i10b 1
+!s100 LzVZSIlA2FW8a69zbK6T71
+IAD?Y0S;36?YiG9:^WXP:=3
+R1
+R2
+w1459448261
+8C:/gitHub/TEC446/AritmeticaBinaria/sim/testeUnidade.v
+FC:/gitHub/TEC446/AritmeticaBinaria/sim/testeUnidade.v
+L0 5
+R3
+r1
+!s85 0
+31
+!s108 1459451883.142000
+!s107 C:/gitHub/TEC446/AritmeticaBinaria/sim/testeUnidade.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/gitHub/TEC446/AritmeticaBinaria/sim/testeUnidade.v|
+!i113 1
+R4
+nteste@unidade

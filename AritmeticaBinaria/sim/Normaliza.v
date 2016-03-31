@@ -1,14 +1,26 @@
-module Normliza(exp1, exp2, carry, exp_result);
+module Normaliza(controle, mantissa_Resultado, expoente_Resultado, expoente_Ajustado, mantissa_Normalizada);
+input controle;
+input [11:0] mantissa_Resultado;
+input [4:0] expoente_Resultado;
+output reg [4:0] expoente_Ajustado;
+output reg [9:0] mantissa_Normalizada;
 
-input [4:0] exp1, exp2;
-input carry;
-output reg [4:0] exp_result;
 
-always @(exp1 or exp2 or carry) begin
-	if (carry == 1)
-		exp_result = (exp1 + exp2) - 15 + 1;
-	else 
-		exp_result = exp1;
+always @(controle or mantissa_Resultado or expoente_Resultado) begin
+	if(controle) begin
+		mantissa_Normalizada = mantissa_Resultado[9:0];
+		expoente_Ajustado = expoente_Resultado;
+
+		if(mantissa_Resultado[11]==1 & mantissa_Resultado[10]==1) begin
+			mantissa_Normalizada = mantissa_Normalizada >> 1;
+			mantissa_Normalizada[9] = 1'b1;
+			expoente_Ajustado = expoente_Resultado + 1;
+
+		end else if(mantissa_Resultado[11]==1 & mantissa_Resultado[10]==0) begin
+			mantissa_Normalizada = mantissa_Normalizada >> 1;	
+			expoente_Ajustado = expoente_Resultado + 1;	
+		end
+	end
 end
 
 endmodule
